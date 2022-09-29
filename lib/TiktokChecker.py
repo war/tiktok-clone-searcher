@@ -21,6 +21,9 @@ class TiktokChecker:
         return False
 
     def check_username(self, username: str) -> list:
+        if username.isnumeric():
+            return [username]
+        
         clones      = []
         base_url    = "https://www.tiktok.com/@"
         upper       = username.upper()
