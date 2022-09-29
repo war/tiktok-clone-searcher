@@ -25,3 +25,25 @@ python main.py -m bozo,bozo1,bozo2,bozo3
 ```
 
 Using only "python main.py" will prompt the user to input usernames.
+
+# arguments
+```
+-u - Use this when you want to want to check a single user (can be used multiple times)
+-u user
+
+python main.py -u user1
+python main.py -u user1 -u user2 -u user3
+```
+```
+-m - Use this when you want to want to check a mutliple users (less effort than -u <> -u <> -u <>)
+-m user1,user2,user3
+
+python main.py -m user1,user2,user3
+```
+```
+--headless - hide the browser that checks over the accounts
+--headless
+python main.py -m user1,user2,user3 --headless
+```
+
+Using only "python main.py" will prompt the user to input usernames.
