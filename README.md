@@ -1,11 +1,11 @@
 # tiktok-clone-searcher
-There used to be a bug in Tiktok where you could "dupe" your username.
+There used to be a bug in TikTok where you could "dupe" your username. (not sure if this is properly fixed actually)
 
 This will search for username/s you want and tell you if that username has been duped or not.
 
 This requires chromedriver.
 
-# Quickstart guide
+# QuickStart Guide
 ```
 git clone https://github.com/war/tiktok-clone-searcher.git
 
@@ -35,7 +35,7 @@ python main.py -u user1
 python main.py -u user1 -u user2 -u user3
 ```
 ```
--m - Use this when you want to want to check a mutliple users (less effort than -u <> -u <> -u <>)
+-m - Use this when you want to want to check a multiple users (less effort than -u <> -u <> -u <>)
 -m user1,user2,user3
 
 python main.py -m user1,user2,user3
