@@ -20,4 +20,5 @@ python main.py -u bozo
 ```
 python main.py -u bozo
 python main.py -u bozo -u bozo1 -u bozo2 -u bozo3
+python main.py -m bozo,bozo1,bozo2,bozo3
 ```

@@ -6,21 +6,31 @@ import argparse
 def get_args():
     parser = argparse.ArgumentParser(description='Tiktok clone checker')
     parser.add_argument('-u','--user', action='append', help='User to check', required=False)
+    parser.add_argument('-m','--multiuser', help='Users to check', required=False)
     parser.add_argument('--headless', action='store_true', help='Run in headless mode', required=False)
     args = vars(parser.parse_args())
     return args
 
 if __name__ == "__main__":
     #usernames   = ["xp", "bf", "eak", "bozo"]
-
     args        = get_args()
-    usernames   = args["user"]
+
+    usernames = []
+
+    if args["user"]:
+        usernames = args["user"]
+    
+    if args["multiuser"]:
+        for user in args["multiuser"].split(","):
+            usernames.append(user)
 
     chrome_options = Options()
     chrome_options.add_argument("--log-level=3")
 
     if args["headless"]:
         chrome_options.add_argument("--headless")
+
+    print(usernames)
 
     driver      = webdriver.Chrome(options=chrome_options)
     checker     = TiktokChecker(driver)
