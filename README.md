@@ -43,6 +43,7 @@ python main.py -m user1,user2,user3
 ```
 --headless - hide the browser that checks over the accounts
 --headless
+
 python main.py -m user1,user2,user3 --headless
 ```
 
