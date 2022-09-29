@@ -30,7 +30,21 @@ if __name__ == "__main__":
     if args["headless"]:
         chrome_options.add_argument("--headless")
 
-    print(usernames)
+    if not usernames:
+        while True:
+            if len(usernames) > 0:
+                print("Press enter to continue...")
+
+            tmp = input("Enter in a username to check: ")
+
+            if tmp == "":
+                break
+            
+            usernames.append(tmp)
+
+            print("Usernames loaded: " + ", ".join(usernames))
+
+    usernames = list(set(usernames))
 
     driver      = webdriver.Chrome(options=chrome_options)
     checker     = TiktokChecker(driver)
@@ -39,8 +53,7 @@ if __name__ == "__main__":
     driver.close()
 
     print("Results:")
+    print("<username>\t(<number of clones>): list, of, taken, usernames")
 
     for key, item in res.items():
         print("{} \t\t({}): {}".format(key, len(item)-1, ", ".join(item)))
-
-    print("<username>\t(<number of clones>): list, of, taken, usernames")
