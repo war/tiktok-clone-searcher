@@ -6,6 +6,7 @@ import argparse
 def get_args():
     parser = argparse.ArgumentParser(description='Tiktok clone checker')
     parser.add_argument('-u','--user', action='append', help='User to check', required=False)
+    parser.add_argument('--headless', action='store_true', help='Run in headless mode', required=False)
     args = vars(parser.parse_args())
     return args
 
@@ -17,6 +18,9 @@ if __name__ == "__main__":
 
     chrome_options = Options()
     chrome_options.add_argument("--log-level=3")
+
+    if args["headless"]:
+        chrome_options.add_argument("--headless")
 
     driver      = webdriver.Chrome(options=chrome_options)
     checker     = TiktokChecker(driver)
