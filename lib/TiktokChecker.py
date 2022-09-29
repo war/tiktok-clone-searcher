@@ -26,7 +26,7 @@ class TiktokChecker:
         upper       = username.upper()
         lower       = username.lower()
         tmp         = itertools.product(*zip(upper, lower))
-        variants    = list(map(''.join, tmp))
+        variants    = list(set(list(map(''.join, tmp))))
 
         for x in variants:
             if self.test_variant(base_url, username, x):
