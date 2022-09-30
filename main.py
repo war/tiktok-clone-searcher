@@ -58,5 +58,5 @@ if __name__ == "__main__":
     for key, item in res.items():
         print("{} \t\t({}): {}".format(key, len(item)-1, ", ".join(item)))
         
-    print("\tAll results will contain the original username which does")
+    print("\nAll results will contain the original username which does")
     print("not count towards the cloned counter.")
