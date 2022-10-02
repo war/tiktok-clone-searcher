@@ -28,7 +28,6 @@ python main.py -u user1 -u user2 -u user3
 ```
 -m --multiuser:
 - Use this when you want to want to check a multiple users (less effort than -u <> -u <> -u <>)
--m user1,user2,user3
 
 E.g.
 python main.py -m user1,user2,user3
