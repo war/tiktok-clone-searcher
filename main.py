@@ -1,50 +1,22 @@
 from lib.TiktokChecker import TiktokChecker
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-import argparse
-
-def get_args():
-    parser = argparse.ArgumentParser(description='Tiktok clone checker')
-    parser.add_argument('-u','--user', action='append', help='User to check', required=False)
-    parser.add_argument('-m','--multiuser', help='Users to check', required=False)
-    parser.add_argument('--headless', action='store_true', help='Run in headless mode', required=False)
-    args = vars(parser.parse_args())
-    return args
+from lib.Utils import Util
 
 if __name__ == "__main__":
-    #usernames   = ["xp", "bf", "eak", "bozo"]
-    args        = get_args()
 
-    usernames = []
-
-    if args["user"]:
-        usernames = args["user"]
-    
-    if args["multiuser"]:
-        for user in args["multiuser"].split(","):
-            usernames.append(user)
+    args        = Util.get_args()
+    usernames   = Util.get_usernames(args)
 
     chrome_options = Options()
     chrome_options.add_argument("--log-level=3")
 
-    if args["headless"]:
+    if not args["show_browser"]:
         chrome_options.add_argument("--headless")
 
     if not usernames:
-        while True:
-            if len(usernames) > 0:
-                print("Press enter to continue...")
-
-            tmp = input("Enter in a username to check: ")
-
-            if tmp == "":
-                break
-            
-            usernames.append(tmp)
-
-            print("Usernames loaded: " + ", ".join(usernames))
-
-    usernames = list(set(usernames))
+        print("No usernames.")
+        exit(1)
 
     driver      = webdriver.Chrome(options=chrome_options)
     checker     = TiktokChecker(driver)
