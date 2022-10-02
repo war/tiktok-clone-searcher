@@ -56,5 +56,3 @@ python main.py -i
 E.g.
 python main.py -s
 ```
-
-Using only "python main.py" will prompt the user to input usernames.
