@@ -7,18 +7,20 @@ help_dict = {
     "multiuser":    "Users to check seperated by , - usr1,usr2,usr3",
     "env":          "Users to check from .env",
     "input":        "Users to check from user entry (in program)",
-    "headless":     "Run in headless mode"
+    "headless":     "Run in headless mode",
+    "threads":      "Amount of threads to run"
 }
 
 class Util:
     @staticmethod
     def get_args() -> dict[str, str|list|bool]:
         parser = argparse.ArgumentParser(description='Tiktok clone checker')
-        parser.add_argument('-u', '--user',         action='append',        help=help_dict["user"],         required=False)
-        parser.add_argument('-m', '--multiuser',                            help=help_dict["multiuser"],    required=False)
-        parser.add_argument('-e', '--env',          action='store_true',    help=help_dict["env"],          required=False)
-        parser.add_argument('-i', '--input',        action='store_true',    help=help_dict["input"],        required=False)
-        parser.add_argument('-s', '--show_browser', action='store_true',    help=help_dict["headless"],     required=False)
+        parser.add_argument('-u', '--user',         action='append',        help=help_dict["user"],                 required=False)
+        parser.add_argument('-m', '--multiuser',                            help=help_dict["multiuser"],            required=False)
+        parser.add_argument('-e', '--env',          action='store_true',    help=help_dict["env"],                  required=False)
+        parser.add_argument('-i', '--input',        action='store_true',    help=help_dict["input"],                required=False)
+        parser.add_argument('-s', '--show_browser', action='store_true',    help=help_dict["headless"],             required=False)
+        parser.add_argument('-t', '--threads',                              help=help_dict["threads"], default=1,   required=False)
         args = vars(parser.parse_args())
         return args
 
