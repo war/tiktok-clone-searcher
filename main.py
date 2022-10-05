@@ -25,7 +25,7 @@ if __name__ == "__main__":
     driver.close()
 
     print("Results:")
-    print("<username>\t(<number of clones>): list, of, taken, usernames")
+    print("<username>\t(<number of clones>): list, of, usernames, already, registered")
 
     for key, item in res.items():
         print("{} \t\t({}): {}".format(key, len(item)-1, ", ".join(item)))
